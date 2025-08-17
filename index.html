@@ -5,56 +5,52 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>불안의 문장들</title>
   <style>
-    :root { --fg: #111; }
+    :root { --fg: #111; --glass: rgba(255,255,255,.36); }
     * { box-sizing: border-box; }
     html, body { height: 100%; margin: 0; }
     body {
       display: grid; place-items: center; min-height: 100vh;
-      background: url('./clock.jpg') center/cover fixed no-repeat;
+      background: url('./clock2.jpg') center/cover fixed no-repeat;
       font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans KR", sans-serif;
     }
 
     .card {
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
       background: transparent;
-      text-align: center; 
-      color: var(--fg);
+      padding: 0;
+      border-radius: 0;
+      box-shadow: none;
+      text-align: center; color: var(--fg);
       max-width: 840px;
-    }
-
-    /* 공통 박스 스타일 */
-    .box {
-      display: inline-block;
-      background: #fff;
-      padding: 6px 12px;
-      border-radius: 8px;
-      box-shadow: 0 2px 6px rgba(0,0,0,.15);
-      margin-bottom: 10px;
     }
 
     /* 초세기 (제목 느낌으로 크게) */
     .title {
+      margin: 0 0 .6rem;
       font-size: clamp(22px, 5vw, 36px);
       font-weight: 700;
     }
 
     /* 랜덤 문장 (작고 잔잔하게) */
-    #quote {
+    h1#quote {
+      margin: 0 0 .6rem;
       font-size: clamp(12px, 2.8vw, 18px);
       line-height: 1.5;
       font-weight: 500;
     }
 
-    audio { width: min(520px, 92vw); outline: none; margin-top: .8rem; }
+    audio { width: min(520px, 92vw); outline: none; margin-top: .6rem; }
 
     footer { position: fixed; bottom: 10px; left: 50%; transform: translateX(-50%); font-size: 12px; color: rgba(0,0,0,.65); }
   </style>
 </head>
 <body>
   <main class="card">
-    <!-- 초세기 먼저 (흰 박스 안) -->
-    <div class="box title">초세기</div>
-    <!-- 랜덤 글귀 (흰 박스 안) -->
-    <div class="box"><h1 id="quote">Loading...</h1></div>
+    <!-- 초세기 먼저 -->
+    <p class="title">초세기</p>
+    <!-- 그 밑에 랜덤 글귀 -->
+    <h1 id="quote">Loading...</h1>
     <audio controls preload="metadata">
       <source src="./23.mp3" type="audio/mpeg" />
       브라우저가 오디오 태그를 지원하지 않습니다.
